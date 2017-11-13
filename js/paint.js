@@ -47,7 +47,7 @@ function setColor(str){
     currColor = blue;
   }else if(str === "green"){
     currColor = green;
-  }else if(color === "white"){
+  }else if(str === "white"){
     currColor = white;
   }
 }
