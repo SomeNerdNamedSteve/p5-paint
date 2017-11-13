@@ -1,6 +1,6 @@
-var prevPositions = [];
-var weight;
-var white, red, green, blue;
+let prevPositions = [];
+let weight;
+let white, red, green, blue;
 
 function setup(){
   createCanvas(1280,720);
@@ -28,4 +28,13 @@ function draw(){
       position.draw();
     });
   }
+}
+
+function downloadCanvas(){
+  let dateStr = "Canvas at " +  new Date().getTime() + ".png"
+  saveCanvas(dateStr);
+}
+
+function eraseCanvas(){
+  prevPositions = [];
 }

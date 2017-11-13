@@ -7,7 +7,6 @@ function Brush(){
 }
 
 Brush.prototype.draw = function(){
-
   strokeWeight(weight);
   line(this.x, this.y, this.prevX, this.prevY);
 }
