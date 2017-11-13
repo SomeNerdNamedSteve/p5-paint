@@ -1,29 +1,31 @@
 var prevPositions = [];
-
-var stroke = 15;
-
-var red;
+var weight;
+var white, red, green, blue;
 
 function setup(){
   createCanvas(1280,720);
+  white = color(255,255,255);
   red = color(128,0,0);
+  green = color(0,128,0);
+  blue = color(0,0,128);
+  weight = 5;
   noCursor();
-  strokeWeight(stroke);
-  stroke(red);
 }
 
 function draw(){
   background(0);
-  fill(red);
+  fill(white);
+  stroke(white);
+
+  ellipse(mouseX, mouseY, weight, weight);
+
   if(mouseIsPressed){
     prevPositions.push(new Brush());
-  }else{
-    ellipse(mouseX, mouseY, stroke, stroke);
   }
 
   if(prevPositions.length != 0){
     prevPositions.forEach(position => {
-      position.show();
+      position.draw();
     });
   }
 }
