@@ -1,6 +1,7 @@
 let prevPositions = [];
 let weight;
 let white, red, green, blue;
+var currColor;
 
 function setup(){
   createCanvas(1280,720);
@@ -10,17 +11,17 @@ function setup(){
   blue = color(0,0,128);
   weight = 5;
   noCursor();
+  currColor = white;
 }
 
 function draw(){
   background(0);
-  fill(white);
-  stroke(white);
-
+  fill(currColor);
+  stroke(currColor);
   ellipse(mouseX, mouseY, weight, weight);
 
   if(mouseIsPressed){
-    prevPositions.push(new Brush());
+    prevPositions.push(new Brush(currColor));
   }
 
   if(prevPositions.length != 0){
@@ -37,4 +38,16 @@ function downloadCanvas(){
 
 function eraseCanvas(){
   prevPositions = [];
+}
+
+function setColor(str){
+  if(str === "red"){
+    currColor = red;
+  }else if (str === "blue"){
+    currColor = blue;
+  }else if(str === "green"){
+    currColor = green;
+  }else if(color === "white"){
+    currColor = white;
+  }
 }
